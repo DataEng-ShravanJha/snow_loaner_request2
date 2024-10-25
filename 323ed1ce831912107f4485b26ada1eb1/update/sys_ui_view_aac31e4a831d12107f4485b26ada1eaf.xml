@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>_new_2</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-18 19:50:52</sys_created_on>
+        <sys_id>aac31e4a831d12107f4485b26ada1eaf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>_new_2</sys_name>
+        <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">323ed1ce831912107f4485b26ada1eb1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">323ed1ce831912107f4485b26ada1eb1</sys_scope>
+        <sys_update_name>sys_ui_view_aac31e4a831d12107f4485b26ada1eaf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-18 19:50:52</sys_updated_on>
+        <title>_new_2</title>
+        <user/>
+    </sys_ui_view>
+</record_update>
