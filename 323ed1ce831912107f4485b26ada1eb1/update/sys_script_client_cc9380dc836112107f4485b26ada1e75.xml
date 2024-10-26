@@ -11,22 +11,34 @@
         <name>Set Loaner Item Type</name>
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
-    if (isLoading || newValue === '') {
+    if (isLoading) {
         return;
     }
 
-    g_form.addInfoMessage('New value to CMDB_CI field is: ' + newValue);
+    if (newValue === '') {
+        g_form.setValue('item_type', '');
+        g_form.setReadOnly('item_type', false);
+        return;
+    }
 
+
+    var displayControl = g_form.getControl('x_cdltd_loaner_req_loaner_request.cmdb_ci');
+    g_form.addInfoMessage('New value displayControl: ' + displayControl);
+    //g_form.getControl()
     g_form.getReference('cmdb_ci', checkName);
 
     function checkName(ci) {
-        var name = ci.name;
+        //g_form.addInfoMessage('CMDB CI item name is: ' + ci.name + ' Type of object: ' + typeof ci.name);
+        var name = ci.name.toLowerCase();
         // Check the name of the CI using regular expressions; 
         // Set and lock Item type field based on the CI name.
-        if (name.match(/.*blackberry.*/i) || name.match(/.*iphone.*/i) || name.match(/.*android.*/i)) {
+        //  if (name.match(/.*blackberry.*/i) || name.match(/.*iphone.*/i) || name.match(/.*android.*/i)) {
+        if (name.includes('blackberry') || name.includes('iphone') || name.includes('android')) {
+            displayControl.style.background = 'tomato';
             g_form.setValue('item_type', 'cmdb_ci_mobile_device');
             g_form.setReadOnly('item_type', true);
-        } else if (name.match(/.*macbook*./i)) {
+        } else if (name.includes('macbook')) { // (name.match(/.*macbook*./i)) {
+            displayControl.style.background = 'orange';
             g_form.setValue('item_type', 'cmdb_ci_computer');
             g_form.setReadOnly('item_type', true);
         } else {
@@ -44,7 +56,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>cc9380dc836112107f4485b26ada1e75</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name>Set Loaner Item Type</sys_name>
         <sys_overrides/>
         <sys_package display_value="Loaner Request" source="x_cdltd_loaner_req">323ed1ce831912107f4485b26ada1eb1</sys_package>
@@ -52,7 +64,7 @@
         <sys_scope display_value="Loaner Request">323ed1ce831912107f4485b26ada1eb1</sys_scope>
         <sys_update_name>sys_script_client_cc9380dc836112107f4485b26ada1e75</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-10-25 10:18:42</sys_updated_on>
+        <sys_updated_on>2024-10-25 18:26:42</sys_updated_on>
         <table>x_cdltd_loaner_req_loaner_request</table>
         <type>onChange</type>
         <ui_type>0</ui_type>
